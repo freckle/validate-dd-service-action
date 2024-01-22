@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
+
+require "dd_validate"
+
+GITHUB_STATE = ENV.fetch("GITHUB_STATE")
+GITHUB_INPUT_PATH = ENV.fetch("GITHUB_INPUT_PATH")
+GITHUB_INPUT_FAIL = ENV.fetch("GITHUB_INPUT_FAIL")
+
+Inputs = Struct.new(:path, :fail?)
+
+def set_output_json(name, json)
+  content = ["#{name}<<EOJSON", json.to_json, "EOJSON"].join("\n")
+  File.append(GITHUB_STATE, content)
+end
+
+invalid_services = []
+
+DDValidate::DDService.load(GITHUB_INPUT_PATH).each do |service|
+  if service.errors.any?
+    $stderr.puts "Service #{service.name} is invalid:"
+    $stderr.puts service.errors.join("\n")
+    $stderr.puts ""
+
+    invalid_services << {
+      name: service.name,
+      errors: service.errors
+    }
+  else
+    puts "Service #{service.name} is valid"
+  end
+end
+
+set_output_json("invalid-services", invalid_services)
+
+if invalid_services.any? && GITHUB_INPUT_FAIL == "true"
+  exit 1
+end
