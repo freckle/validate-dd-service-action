@@ -1,0 +1,62 @@
+---
+schema-version: v2
+dd-service: example-app-api
+team: Platform
+contacts:
+  - type: slack
+    contact: https://acme.slack.com/archives/abc123
+repos:
+  - name: Source
+    provider: github
+    url: https://github.com/acme/example-app
+integrations:
+  pagerduty:
+    url: "Hi"
+links:
+  - name: About
+    type: wiki
+    url:
+  - name: Runbook B
+    type: runbook
+    url:
+tags:
+  - "app:example-app"
+
+---
+schema-version: v2
+dd-service: example-app-worker
+contacts:
+  - type: slack
+    contact: https://acme.slack.com/archives/abc123
+repos:
+  - name: Source
+    provider: github
+    url: https://github.com/acme/example-app
+tags:
+  - "app:example-app"
+
+---
+schema-version: v2
+dd-service: example-app-snitch
+contacts:
+  - type: slack
+    contact: https://acme.slack.com/archives/abc123
+repos:
+  - name: Source
+    provider: github
+    url: https://github.com/acme/example-app
+tags:
+  - "app:example-app"
+
+---
+schema-version: v2
+dd-service: example-app-landing
+contacts:
+  - type: slack
+    contact: https://acme.slack.com/archives/abc123
+repos:
+  - name: Source
+    provider: github
+    url: https://github.com/acme/example-app
+tags:
+  - "app:example-app"
