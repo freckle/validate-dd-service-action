@@ -12,7 +12,7 @@ class Draft07 < JSON::Schema::Draft4
     @names = ["http://json-schema.org/draft-07/schema#"]
   end
 
-  JSON::Validator.register_validator(self.new)
+  JSON::Validator.register_validator(new)
 end
 
 module DDValidate
@@ -22,10 +22,10 @@ module DDValidate
       res = Net::HTTP.get_response(uri)
 
       unless res.is_a?(Net::HTTPSuccess)
-        $stderr.puts "Unable to fetch DataDog schema for service-catalog"
-        $stderr.puts "URI: #{uri}"
-        $stderr.puts "Response: #{res}"
-        $stderr.puts "Your schema-version may be invalid"
+        warn "Unable to fetch DataDog schema for service-catalog"
+        warn "URI: #{uri}"
+        warn "Response: #{res}"
+        warn "Your schema-version may be invalid"
         exit 1
       end
 
@@ -36,7 +36,7 @@ module DDValidate
   class DDService
     def self.load(path, schema_fetcher = FetchDDSchema)
       YAML.load_stream(File.read(path)).map do |definition|
-        self.new(definition, schema_fetcher)
+        new(definition, schema_fetcher)
       end
     end
 
