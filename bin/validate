@@ -18,9 +18,9 @@ invalid_services = []
 
 DDValidate::DDService.load(INPUT_PATH).each do |service|
   if service.errors.any?
-    $stderr.puts "Service #{service.name} is invalid:"
-    $stderr.puts service.errors.join("\n")
-    $stderr.puts ""
+    warn "Service #{service.name} is invalid:"
+    warn service.errors.join("\n")
+    warn ""
 
     invalid_services << {
       name: service.name,
