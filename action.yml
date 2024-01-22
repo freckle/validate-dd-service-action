@@ -1,0 +1,17 @@
+name: Validate DD Service
+description: Validate a service.datadog.yaml file against its JSON schema
+inputs:
+  path:
+    description: Path to service.datadog.yaml file
+    required: true
+    default: service.datadog.yaml
+  fail:
+    description: Fail on an invalid definition?
+    required: true
+    default: true
+outputs:
+  invalid-services:
+    description: JSON Array of invalid service names and errors
+runs:
+  using: docker
+  image: Dockerfile
