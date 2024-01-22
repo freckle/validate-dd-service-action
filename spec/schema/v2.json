@@ -7,26 +7,36 @@
   "properties": {
     "schema-version": {
       "description": "Schema version being used",
-      "examples": ["v2"],
+      "examples": [
+        "v2"
+      ],
       "type": "string",
       "default": "v2",
-      "enum": ["v2"]
+      "enum": [
+        "v2"
+      ]
     },
     "dd-service": {
       "description": "Unique identifier of the service. Must be unique across all services, and is used to match with a service in Datadog",
-      "examples": ["my-service"],
+      "examples": [
+        "my-service"
+      ],
       "type": "string",
       "minLength": 1
     },
     "team": {
       "description": "Team that owns the service",
-      "examples": ["my-team"],
+      "examples": [
+        "my-team"
+      ],
       "type": "string",
       "minLength": 1
     },
     "dd-team": {
       "description": "Experimental feature. A Team handle that matches a Team in the Datadog Teams product.",
-      "examples": ["my-team"],
+      "examples": [
+        "my-team"
+      ],
       "type": "string",
       "minLength": 1,
       "pattern": "[^A-Z ]+"
@@ -61,7 +71,11 @@
     },
     "tags": {
       "description": "A set of custom tags",
-      "examples": [["my:tag"]],
+      "examples": [
+        [
+          "my:tag"
+        ]
+      ],
       "type": "array",
       "items": {
         "type": "string"
@@ -94,11 +108,19 @@
             "region": {
               "description": "Opsgenie Instance Region",
               "type": "string",
-              "examples": ["US", "EU"],
-              "enum": ["US", "EU"]
+              "examples": [
+                "US",
+                "EU"
+              ],
+              "enum": [
+                "US",
+                "EU"
+              ]
             }
           },
-          "required": ["service-url"],
+          "required": [
+            "service-url"
+          ],
           "additionalProperties": false
         }
       },
@@ -111,7 +133,10 @@
     }
   },
   "additionalProperties": false,
-  "required": ["schema-version", "dd-service"],
+  "required": [
+    "schema-version",
+    "dd-service"
+  ],
   "$defs": {
     "link": {
       "additionalProperties": false,
@@ -119,13 +144,19 @@
       "properties": {
         "name": {
           "description": "Link name",
-          "examples": ["Runbook", "Dashboard"],
+          "examples": [
+            "Runbook",
+            "Dashboard"
+          ],
           "type": "string",
           "minLength": 1
         },
         "type": {
           "description": "Link type",
-          "examples": ["runbook", "dashboard"],
+          "examples": [
+            "runbook",
+            "dashboard"
+          ],
           "type": "string",
           "enum": [
             "doc",
@@ -141,12 +172,18 @@
         },
         "url": {
           "description": "Link url",
-          "examples": ["https://my-runbook"],
+          "examples": [
+            "https://my-runbook"
+          ],
           "type": "string",
           "format": "uri"
         }
       },
-      "required": ["name", "type", "url"]
+      "required": [
+        "name",
+        "type",
+        "url"
+      ]
     },
     "contact": {
       "additionalProperties": false,
@@ -154,15 +191,26 @@
       "properties": {
         "name": {
           "description": "Contact name",
-          "examples": ["Oncall Slack", "Team Email"],
+          "examples": [
+            "Oncall Slack",
+            "Team Email"
+          ],
           "type": "string",
           "minLength": 2
         },
         "type": {
           "description": "Contact type",
-          "examples": ["email", "slack", "microsoft-teams"],
+          "examples": [
+            "email",
+            "slack",
+            "microsoft-teams"
+          ],
           "type": "string",
-          "enum": ["email", "slack", "microsoft-teams"]
+          "enum": [
+            "email",
+            "slack",
+            "microsoft-teams"
+          ]
         },
         "contact": {
           "description": "Contact value",
@@ -207,7 +255,10 @@
           }
         }
       ],
-      "required": ["type", "contact"]
+      "required": [
+        "type",
+        "contact"
+      ]
     },
     "doc": {
       "additionalProperties": false,
@@ -215,24 +266,36 @@
       "properties": {
         "name": {
           "description": "Doc name",
-          "examples": ["Architecture", "RFC", "Design"],
+          "examples": [
+            "Architecture",
+            "RFC",
+            "Design"
+          ],
           "type": "string",
           "minLength": 1
         },
         "provider": {
           "description": "Doc provider",
-          "examples": ["google drive", "figma"],
+          "examples": [
+            "google drive",
+            "figma"
+          ],
           "type": "string",
           "minLength": 1
         },
         "url": {
           "description": "Doc url",
-          "examples": ["https://gdrive/mydoc"],
+          "examples": [
+            "https://gdrive/mydoc"
+          ],
           "type": "string",
           "format": "uri"
         }
       },
-      "required": ["name", "url"]
+      "required": [
+        "name",
+        "url"
+      ]
     },
     "repo": {
       "additionalProperties": false,
@@ -240,24 +303,33 @@
       "properties": {
         "name": {
           "description": "Repo name",
-          "examples": ["Source Code"],
+          "examples": [
+            "Source Code"
+          ],
           "type": "string",
           "minLength": 1
         },
         "provider": {
           "description": "Repo provider",
-          "examples": ["Github"],
+          "examples": [
+            "Github"
+          ],
           "type": "string",
           "minLength": 1
         },
         "url": {
           "description": "Repo url",
-          "examples": ["https://github.com/DataDog/schema"],
+          "examples": [
+            "https://github.com/DataDog/schema"
+          ],
           "type": "string",
           "format": "uri"
         }
       },
-      "required": ["name", "url"]
+      "required": [
+        "name",
+        "url"
+      ]
     }
   }
 }
