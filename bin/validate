@@ -11,7 +11,7 @@ Inputs = Struct.new(:path, :fail?)
 
 def set_output_json(name, json)
   content = ["#{name}<<EOJSON", json.to_json, "EOJSON"].join("\n")
-  File.append(GITHUB_OUTPUT, content)
+  File.write(GITHUB_OUTPUT, content, mode: "a+")
 end
 
 invalid_services = []
