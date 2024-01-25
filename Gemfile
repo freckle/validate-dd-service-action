@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+gem "bigdecimal"
 gem "json"
 gem "json-schema"
 
