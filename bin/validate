@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 require "dd_validate"
 
 GITHUB_OUTPUT = ENV.fetch("GITHUB_OUTPUT")
-INPUT_PATH = ENV.fetch("INPUT_PATH")
+INPUT_PATH = File.join("", "github", "workspace", ENV.fetch("INPUT_PATH"))
 INPUT_FAIL = ENV.fetch("INPUT_FAIL")
 
 Inputs = Struct.new(:path, :fail?)
