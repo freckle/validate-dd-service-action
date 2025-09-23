@@ -5,7 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     bigdecimal (3.2.3)
     diff-lcs (1.6.2)
-    json (2.14.1)
+    json (2.15.0)
     json-schema (6.0.0)
       addressable (~> 2.8)
       bigdecimal (~> 3.1)
