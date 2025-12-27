@@ -1,4 +1,4 @@
-FROM ruby:3
+FROM ruby:4
 MAINTAINER "Freckle Engineering <freckle-engineering@renaissance.com>"
 RUN mkdir /app
 WORKDIR /app
